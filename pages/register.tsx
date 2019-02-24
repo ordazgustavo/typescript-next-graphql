@@ -1,4 +1,5 @@
 import React from 'react'
+import Router from 'next/router'
 import { Formik, Form, Field } from 'formik'
 
 import Layout from '../components/Layout'
@@ -23,6 +24,7 @@ export default function Register() {
                   variables: { data: values }
                 })
                 console.log(response)
+                Router.push('/check-email')
               } catch (error) {
                 const errors: { [key: string]: string } = {}
                 error.graphQLErrors[0].validationErrors.forEach((err: any) => {
